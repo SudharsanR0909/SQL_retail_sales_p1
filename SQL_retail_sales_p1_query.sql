@@ -1,5 +1,5 @@
 -- SQL Retail Sales Analysis - P1
-create database sudharsan_project_sql-p1;
+create database sql_project_p1;
 
 
 -- create table
