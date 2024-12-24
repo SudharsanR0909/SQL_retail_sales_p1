@@ -23,22 +23,21 @@ This project is designed to demonstrate SQL skills and techniques typically used
 - **Table Creation**: A table named `retail_sales` is created to store the sales data. The table structure includes columns for transaction ID, sale date, sale time, customer ID, gender, age, product category, quantity sold, price per unit, cost of goods sold (COGS), and total sale amount.
 
 ```sql
-CREATE DATABASE sql_project_p1;
+create table retail_sales
+			(
+				transactions_id int primary key,
+				sale_date date,
+				sale_time time,
+				customer_id int,
+				gender varchar(15),
+				age int,
+				category varchar(15),
+				quantity int,
+				price_per_unit float,
+				cogs float,
+				total_sale float
 
-CREATE TABLE retail_sales
-(
-    transactions_id INT PRIMARY KEY,
-    sale_date DATE,	
-    sale_time TIME,
-    customer_id INT,	
-    gender VARCHAR(10),
-    age INT,
-    category VARCHAR(35),
-    quantity INT,
-    price_per_unit FLOAT,	
-    cogs FLOAT,
-    total_sale FLOAT
-);
+			);
 ```
 
 ### 2. Data Exploration & Cleaning
@@ -49,21 +48,53 @@ CREATE TABLE retail_sales
 - **Null Value Check**: Check for any null values in the dataset and delete records with missing data.
 
 ```sql
-SELECT COUNT(*) FROM retail_sales;
-SELECT COUNT(DISTINCT customer_id) FROM retail_sales;
-SELECT DISTINCT category FROM retail_sales;
+select count(*) as total_sales from retail_sales;
+select count(distinct(customer_id)) as total_customers from retail_sales;
+select distinct category from retail_sales;
 
-SELECT * FROM retail_sales
-WHERE 
-    sale_date IS NULL OR sale_time IS NULL OR customer_id IS NULL OR 
-    gender IS NULL OR age IS NULL OR category IS NULL OR 
-    quantity IS NULL OR price_per_unit IS NULL OR cogs IS NULL;
+select * from retail_sales
+where
+	sale_date is null
+	or
+	sale_time is null
+	or
+	customer_id is null
+	or
+	gender is null
+	or
+	age is null
+	or
+	category is null
+	or
+	quantity is null
+	or
+	price_per_unit is null
+	or
+	cogs is null
+	or
+	total_sale is null;
 
-DELETE FROM retail_sales
-WHERE 
-    sale_date IS NULL OR sale_time IS NULL OR customer_id IS NULL OR 
-    gender IS NULL OR age IS NULL OR category IS NULL OR 
-    quantity IS NULL OR price_per_unit IS NULL OR cogs IS NULL;
+delete from retail_sales
+where
+	sale_date is null
+	or
+	sale_time is null
+	or
+	customer_id is null
+	or
+	gender is null
+	or
+	age is null
+	or
+	category is null
+	or
+	quantity is null
+	or
+	price_per_unit is null
+	or
+	cogs is null
+	or
+	total_sale is null;
 ```
 
 ### 3. Data Analysis & Findings
