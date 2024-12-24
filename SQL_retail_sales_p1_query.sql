@@ -23,6 +23,7 @@ create table retail_sales
 select * from retail_sales
 limit 10
 
+-- Data Exploration & Cleaning
 select 
 	count(*) 
 from retail_sales;
@@ -39,36 +40,43 @@ where sale_time is null;
 
 select * from retail_sales
 where
-	transactions_id is null
-	or
 	sale_date is null
 	or
 	sale_time is null
 	or
+	customer_id is null
+	or
 	gender is null
+	or
+	age is null
 	or
 	category is null
 	or
 	quantity is null
+	or
+	price_per_unit is null
 	or
 	cogs is null
 	or
 	total_sale is null;
-	
 --
 delete from retail_sales
 where
-	transactions_id is null
-	or
 	sale_date is null
 	or
 	sale_time is null
 	or
+	customer_id is null
+	or
 	gender is null
+	or
+	age is null
 	or
 	category is null
 	or
 	quantity is null
+	or
+	price_per_unit is null
 	or
 	cogs is null
 	or
@@ -183,7 +191,7 @@ from
 	from retail_sales
 	group by 1, 2
 ) as t1
-where rank = 1
+where rank = 1;
 
 -- order by 1, 3 desc
 
@@ -223,7 +231,7 @@ select
 	shift,
 	count(*) as number_of_orders 
 from hourly_sales
-group by shift
+group by shift;
 
 -- End of Project
 
